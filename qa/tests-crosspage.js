@@ -14,8 +14,8 @@ suite('Cross-Page Tests', function () {
 
                 browser.visit(referrer, function () {
                     browser.clickLink('.requestGroupRate', function () {
-                        assert(browser.field('referrer').value
-                                === referrer);
+                        assert(
+                                browser.field('referrer').value === referrer);
                         done();
                     });
                 });
@@ -27,8 +27,8 @@ suite('Cross-Page Tests', function () {
 
                 browser.visit(referrer, function () {
                     browser.clickLink('.requestGroupRate', function () {
-                        assert(browser.field('referrer').value
-                                === referrer);
+                        assert(
+                                browser.field('referrer').value === referrer);
                         done();
                     });
                 });
