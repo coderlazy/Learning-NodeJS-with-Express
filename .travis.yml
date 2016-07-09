@@ -16,3 +16,5 @@ install:
 script:
   - node app.js &
   - grunt
+after-script:
+  - pkill node
