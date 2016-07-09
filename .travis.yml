@@ -9,3 +9,10 @@ addons:
       - ubuntu-toolchain-r-test
     packages:
       - g++-4.8
+install:
+  - npm install
+  - npm install -g mocha jshint grunt-cli
+  - wget http://ftp.debian.org/debian/pool/main/l/linkchecker/linkchecker_7.9-2_amd64.deb ; sudo dpkg -i linkchecker_7.9-2_amd64.deb
+script:
+  - node app.js &
+  - grunt
