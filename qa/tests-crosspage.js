@@ -25,18 +25,18 @@ suite('Cross-Page Tests', function () {
                 });
             });
 
-    test('requesting a group rate from the oregon coast tour page should ' +
-            'populate the referrer field', function (done) {
-                var referrer = 'http://' + ip + ':' + port + '/tours/oregon-coast';
+    // test('requesting a group rate from the oregon coast tour page should ' +
+    //         'populate the referrer field', function (done) {
+    //             var referrer = 'http://' + ip + ':' + port + '/tours/oregon-coast';
 
-                browser.visit(referrer, function () {
-                    browser.clickLink('.requestGroupRate', function () {
-                        assert(
-                                browser.field('referrer').value === referrer);
-                        done();
-                    });
-                });
-            });
+    //             browser.visit(referrer, function () {
+    //                 browser.clickLink('.requestGroupRate', function () {
+    //                     assert(
+    //                             browser.field('referrer').value === referrer);
+    //                     done();
+    //                 });
+    //             });
+    //         });
 
     test('visiting the "request group rate" page dirctly should result ' +
             'in an empty referrer field', function (done) {
