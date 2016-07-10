@@ -67,6 +67,20 @@ app.get('/jquerytest', function(req, res) {
     res.render('jquerytest');
 });
 
+app.get('/nursery-rhyme', function(req, res) {
+    res.render('nursery-rhyme');
+});
+
+// ajax call
+app.get('/data/nursery-rhyme', function(req, res) {
+    res.json({
+        animal: 'squirrel',
+        bodyPart: 'tail',
+        adjective: 'bushy',
+        noun: 'heck',
+    });
+});
+
 app.get('/tours/payment', function(req, res) {
     res.render('tours/payment', {
         currency: {
