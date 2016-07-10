@@ -1,5 +1,7 @@
 var fortune = require('./lib/fortune.js');
 
+var weather = require('./lib/weather.js');
+
 var express = require('express');
 
 var app = express();
@@ -12,6 +14,7 @@ var handlebars = require('express-handlebars')
 app.engine('handlebars', handlebars.engine);
 app.set('view engine', 'handlebars');
 
+// setup IP and Port for generalization
 app.set('port', process.env.PORT || 3000);
 app.set('ip', process.env.IP || 'localhost');
 
@@ -22,6 +25,13 @@ app.use(express.static(__dirname + '/public'));
 app.use(function(req, res, next) {
     res.locals.showTests = app.get('env') !== 'production' &&
         req.query.test === '1';
+    next();
+});
+
+// middleware to get weather data
+app.use(function(req, res, next) {
+    if (!res.locals.partials) res.locals.partials = {};
+    res.locals.partials.weatherData = weather.getWeatherData();
     next();
 });
 
